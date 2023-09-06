@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.Properties;
 
 public class Base {
-    public static WebDriver driver;
+    public static AndroidDriver driver;
     public static Properties props =new Properties();
     public Base(){
         try {
@@ -28,15 +28,18 @@ public class Base {
     }
     public static void luncherWeb() throws MalformedURLException {
         DesiredCapabilities des =new DesiredCapabilities();
-        des.setCapability(MobileCapabilityType.BROWSER_NAME,"chrome");
-        des.setCapability(MobileCapabilityType.DEVICE_NAME,"");
+        des.setCapability(MobileCapabilityType.BROWSER_NAME,"CHROME");
+        des.setCapability(MobileCapabilityType.DEVICE_NAME,"Galaxy Tab A");
         WebDriverManager.chromedriver().setup();
-        driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),des);
-        props.getProperty("url");
+        driver=new AndroidDriver(new URL(props.getProperty("AppiumLink")),des);
+        driver.get(props.getProperty("url"));
     }
     public static void luncherApp() throws MalformedURLException {
         DesiredCapabilities DesC =new DesiredCapabilities();
+        DesC.setCapability(MobileCapabilityType.PLATFORM_NAME,"");
+        DesC.setCapability(MobileCapabilityType.PLATFORM_VERSION,"");
         DesC.setCapability(MobileCapabilityType.DEVICE_NAME,"");
+        DesC.setCapability(MobileCapabilityType.AUTOMATION_NAME,"");
         DesC.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"");
         DesC.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"");
         driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),DesC);
