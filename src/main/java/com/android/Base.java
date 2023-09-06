@@ -36,12 +36,12 @@ public class Base {
     }
     public static void luncherApp() throws MalformedURLException {
         DesiredCapabilities DesC =new DesiredCapabilities();
-        DesC.setCapability(MobileCapabilityType.PLATFORM_NAME,"");
-        DesC.setCapability(MobileCapabilityType.PLATFORM_VERSION,"");
-        DesC.setCapability(MobileCapabilityType.DEVICE_NAME,"");
-        DesC.setCapability(MobileCapabilityType.AUTOMATION_NAME,"");
-        DesC.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"");
-        DesC.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"");
+        DesC.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
+        DesC.setCapability(MobileCapabilityType.PLATFORM_VERSION,"10");
+        DesC.setCapability(MobileCapabilityType.DEVICE_NAME,"Galaxy Tab A");
+        DesC.setCapability(MobileCapabilityType.AUTOMATION_NAME,props.getProperty("androidAutomationName"));
+        DesC.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.emc.activity");
+        DesC.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.emc.activity.EMCTabletActivity");
         driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),DesC);
 
     }
